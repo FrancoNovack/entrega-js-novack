@@ -1,0 +1,27 @@
+header{
+    background-color: rgba(0, 255, 255, 0.281);
+}
+h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: overline;
+    padding: 8px 0px 0px 80px;
+}
+nav ul li {
+    list-style: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    padding: 3px 0 5px 80px;
+}
+.seccion{
+    background-image: url(../img/auto.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 600px;
+    padding-top: 500px;
+}
+h2{
+    background-color: rgba(250, 235, 215, 0.404);
+    width: 450px;
+    color: rgba(0, 0, 0, 0.582);
+}
