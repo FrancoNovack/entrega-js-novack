@@ -20,11 +20,30 @@
     <section class="seccion">
         <h2>VENI Y TE LLEVAS TU PROXIMO VEHICULO EN EL DIA </h2>
     </section>
+    <section class="formulario">
+        <h3>Calculadora de Crédito</h3>
+        <form id="credito-form">
+    <label for="precioAuto">Precio del Automóvil:</label>
+            <input type="number" id="precioAuto" placeholder="Ingrese el precio total del auto" required>
+    <label for="entrada">Dinero que va a entregar (Entrada):</label>
+    <input type="number" id="entrada" placeholder="Ingrese el monto que puede entregar como entrada" required>
+    <label for="plazo">Seleccione el Plazo:</label>
+    <select id="plazo" required>
+    <option value="6">6 meses</option>
+    <option value="12">12 meses</option>
+    <option value="18">18 meses</option>
+    <option value="24">24 meses</option>
+    <option value="36">36 meses</option>
+    </label>
+    <button type="submit">Calcular</button>
+    <label for="tasa">Tasa de Interés Anual (%):</label>
+    <input type="number" id="tasa" placeholder="Ingrese 0" required>
+    <button type="submit">Calcular</button>
+</for>
+    <div id="resultado"></div>
+</form>
+</section>
 
-
-
-
-    
 
     <script src="./index.js"> 
 

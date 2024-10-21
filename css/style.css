@@ -20,8 +20,39 @@ nav ul li {
     height: 600px;
     padding-top: 500px;
 }
-h2{
+h3{
     background-color: rgba(250, 235, 215, 0.404);
     width: 450px;
     color: rgba(0, 0, 0, 0.582);
+}
+.formulario{
+    width: 450px;
+    border: 1px solid orange;
+    margin: 20px;
+    padding: 15px;
+
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    width: 390px;
+}
+input, select {
+    width: 390px;
+    padding: 8px;
+    margin: 10px;
+
+}
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #218838;
+}
+#resultado {
+    margin-top: 20px;
 }
