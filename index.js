@@ -1,3 +1,9 @@
+let nombreUsuario = prompt("ingresa tu nombre")
+localStorage.setItem("nombre", nombreUsuario)
+let titulo = document.getElementById("nombre");
+titulo.innerHTML= "Hola, " + nombreUsuario;
+
+
 document.getElementById('credito-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Evitar el envío del formulario por defecto
 
@@ -7,10 +13,15 @@ document.getElementById('credito-form').addEventListener('submit', function(even
     const plazo = parseInt(document.getElementById('plazo').value);
     let tasaAnual = parseFloat(document.getElementById('tasa').value);
 
+    let precioAutoJs =  JSON.stringify(precioAuto);
+    let entradaJs =  JSON.stringify(entrada);
+    let plazoJs =  JSON.stringify(plazo);
+
     // Verificar que la entrada sea válida (no mayor al precio del auto)
     if (entrada >= precioAuto) {
         alert("La entrada no puede ser mayor o igual al precio del automóvil.");
         return;
+        
     }
 
     // Calcular el monto a financiar
@@ -34,6 +45,11 @@ document.getElementById('credito-form').addEventListener('submit', function(even
 
     // Cálculo de la cuota mensual con la fórmula de anualidad
     const cuotaMensual = (montoFinanciar * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -plazo));
+    let cuotaMensualJs =  JSON.stringify(cuotaMensual);
+    localStorage.setItem("El valor del auto es:" , precioAutoJs);
+    localStorage.setItem("El capital que contas es:", entradaJs);
+    localStorage.setItem("La cantidad de cuotas seleccionadas son:" , plazoJs);
+    localStorage.setItem("el valor de la cuota mensual sera de:", cuotaMensualJs)
 
     // Mostrar el resultado
     const resultadoDiv = document.getElementById('resultado');
