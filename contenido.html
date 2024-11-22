@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Entrega NOVACK</title>
+</head>
+<body>
+    <header>
+        <h1> TU MEJOR LUGAR PARA COMPRAR TU AUTO</h1>
+        <nav>
+            <ul>
+                <li>Usados</li>
+                <li>Financiacion</li>
+                <li>Ubicacion</li>
+            </ul>
+        </nav>
+    </header>
+    <section class="seccion">
+        <h1>Carrito</h1>
+        <div class="pagina-carrito" id="pagina-carrito">
+            <!-- Se rellena con JS -->
+        <h2>VENI Y TE LLEVAS TU PROXIMO VEHICULO EN EL DIA </h2>
+    </section>
+
+    <section class="container">
+        <h2 class="titulo">Productos</h2>
+        <div class="productos" id="productos">
+            <!-- Esto se va a rellenar en JS -->
+        </div>
+    </section>
+    <section class="container">
+        <h2 class="titulo">Carrito</h2>
+        <div class="carrito">
+            <div id="carrito-vacio" class="">
+                <h4>Tu carrito está vacío. 🙁</h4>
+            </div>
+            <div class="carrito-productos d-none" id="carrito-productos">
+                <!-- Esto se rellena con JS -->
+            </div>
+            <button class="d-none" id="vaciar-carrito">Vaciar carrito</button>
+            <div class="carrito-total">
+                <h2>Total: <span id="carrito-total">$0</span></h2>
+            </div>
+        </div>
+    </section>
+
+    </section>
+    <h2 id="nombre"></h2>
+    <section class="formulario">
+        <h3>Calculadora de Crédito</h3>
+        <form id="credito-form">
+    <label for="precioAuto">Precio del Automóvil:</label>
+            <input type="number" id="precioAuto" placeholder="Ingrese el precio total del auto" required>
+    <label for="entrada">Dinero que va a entregar (Entrada):</label>
+    <input type="number" id="entrada" placeholder="Ingrese el monto que puede entregar como entrada" required>
+    <label for="plazo">Seleccione el Plazo:</label>
+    <select id="plazo" required>
+    <option value="6">6 meses</option>
+    <option value="12">12 meses</option>
+    <option value="18">18 meses</option>
+    <option value="24">24 meses</option>
+    <option value="36">36 meses</option>
+    </label>
+    <button type="submit">Calcular</button>
+    <label for="tasa">Tasa de Interés Anual (%):</label>
+    <input type="number" id="tasa" placeholder="Ingrese 0" required>
+    <button type="submit">Calcular</button>
+</for>
+    <div id="resultado"></div>
+</form>
+</section>
+
+
+    <script src="./index.js"> 
+
+    </script> 
+
+
+</body>
+</html>
