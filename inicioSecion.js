@@ -18,7 +18,7 @@ botonIncio.addEventListener('click', ()=>{
             const clave = document.getElementById('contraseña').value; 
 
             if(usuario1 === usuarioAutorizado && clave === passwordAutorizada){
-                window.location.href= "/contenido.html"
+                window.location.href= "/primerVentaja.html"
             }else{
                 alert("clave incorrecta")
             }

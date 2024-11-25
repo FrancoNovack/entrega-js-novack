@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AN Automotores</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1>AN Automotores</h1>
+            <a id="ir-al-carrito" href="./carrito.html" style="color: white">Ir al Carrito</a>
+        </div>
+    </header>
+    <main class="main">
+        <section class="container">
+            <h2 class="titulo">Productos</h2>
+            <div class="productos" id="productos">
+                <!-- Esto se va a rellenar en JS -->
+            </div>
+        </section>
+        <section class="container">
+            <h2 class="titulo">Carrito</h2>
+            <div class="carrito">
+                <div id="carrito-vacio" class="vacio">
+                    <h4>Tu carrito está vacío. 🙁</h4>
+                </div>
+                <div class="carrito-productos d-none" id="carrito-productos">
+                    <!-- Esto se rellena con JS -->
+                </div>
+                <button class="d-none" id="vaciar-carrito">Vaciar carrito</button>
+                <div class="carrito-total">
+                    <h2>Total: <span id="carrito-total">$0</span></h2>
+                </div>
+            </div>
+        </section>
+        <div class="separacion"> </div>
+    </section>
+    <section class="container-autos">
+        <h2 class="vehiclos">Nuestros vehiculos</h2>
+        <div class="autos" id="autos">
+            <h3 class="nombreAuto"></h3>
+            <h4 class="precioAuto"></h4>
+            <img src="" alt="" class="imgAuto">
+
+        </div>
+    </section>
+    <h2 id="nombre"></h2>
+    <section class="formulario">
+        <h3>Calculadora de Crédito</h3>
+        <form id="credito-form">
+    <label for="precioAuto">Precio del Automóvil:</label>
+            <input type="number" id="precioAuto" placeholder="Ingrese el precio total del auto" required>
+    <label for="entrada">Dinero que va a entregar (Entrada):</label>
+    <input type="number" id="entrada" placeholder="Ingrese el monto que puede entregar como entrada" required>
+    <label for="plazo">Seleccione el Plazo:</label>
+    <select id="plazo" required>
+    <option value="6">6 meses</option>
+    <option value="12">12 meses</option>
+    <option value="18">18 meses</option>
+    <option value="24">24 meses</option>
+    <option value="36">36 meses</option>
+    </label>
+    <button type="submit">Calcular</button>
+    <label for="tasa">Tasa de Interés Anual (%):</label>
+    <input type="number" id="tasa" placeholder="Ingrese 0" required>
+    <button type="submit">Calcular</button>
+</for>
+    <div id="resultado"></div>
+</form>
+</section>
+
+
+
+    </main>
+
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
