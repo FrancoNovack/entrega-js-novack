@@ -1,5 +1,29 @@
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+let agregarAlCarrito = (producto) => {
+    let productoEnCarrito = carrito.find((item) => item.id === producto.id);
+
+    if (productoEnCarrito) {
+        productoEnCarrito.cantidad++;
+    } else {
+        carrito.push({ ...producto, cantidad: 1 });
+    }
+
+    actualizarCarrito(); // Actualiza el carrito en el DOM
+
+    Toastify({
+        text: producto.titulo + " agregado",
+        avatar: producto.img,
+        duration: 1500,
+        close: true,
+        className: "toast-agregar",
+        style: {
+            background: "#ff3c00",
+            color: "#f2ebd9"
+        },
+    }).showToast();
+};
+
 const productos = [
     {
         id: "1",
@@ -40,11 +64,14 @@ const productos = [
 ];
 
 const contenedorProductos = document.querySelector("#productos");
+
 const carritoVacio = document.querySelector("#carrito-vacio");
 const carritoProductos = document.querySelector("#carrito-productos");
 const carritoTotal = document.querySelector("#carrito-total");
 const vaciarCarrito = document.querySelector("#vaciar-carrito");
 const irAlCarrito = document.querySelector("#ir-al-carrito");
+
+
 
 productos.forEach((producto) => {
 
@@ -67,7 +94,36 @@ productos.forEach((producto) => {
     contenedorProductos.append(div);
 });
 
-const agregarAlCarrito = (producto) => {
+
+
+// Función para cargar los productos
+const cargarProductos = () => {
+    // Mostrar productos en el contenedor
+    productos.forEach((producto) => {
+
+        
+
+        let button = document.createElement("button");
+        button.classList.add("producto-btn");
+        button.innerText = "Agregar al carrito";
+
+        // Asociamos el evento de agregar al carrito
+        button.addEventListener("click", () => {
+            agregarAlCarrito(producto);  // Aquí llamamos a la función agregarAlCarrito
+
+            div.append(button);
+        });
+
+
+    });
+};
+
+// Ahora, en algún lugar de tu código debes llamar a esta función
+cargarProductos();
+
+
+
+agregarAlCarrito  = (producto) => {
     let productoEnCarrito = carrito.find((item) => item.id === producto.id);
     
     if (productoEnCarrito) {
@@ -165,6 +221,53 @@ vaciarCarrito.addEventListener("click", () => {
       })
 })
 
+// Botón para enviar carrito al servidor
+let enviarCarrito = document.querySelector("#enviar-carrito");
+
+enviarCarrito = () => {
+    if (carrito.length === 0) {
+        alert("El carrito está vacío.");
+        return;
+    }
+
+    // Enviar carrito al servidor
+    fetch("http://localhost:3000/carrito", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ carrito: carrito }) // Enviar el carrito
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Error al enviar el carrito");
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Carrito enviado:", data);
+        Swal.fire({
+            icon: 'success',
+            title: 'Carrito enviado correctamente',
+            showConfirmButton: false,
+            timer: 1500
+        });
+        // Aquí puedes actualizar el carrito en el frontend o limpiar el carrito
+        carrito = []; // Vaciar el carrito si lo deseas
+        actualizarCarrito(); // Llamar la función para actualizar la interfaz
+    })
+    .catch(error => {
+        console.error("Error al enviar el carrito:", error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Error al enviar el carrito',
+            text: error.message,
+            showConfirmButton: true
+        });
+    });
+};
+
+console.log("Carrito antes de enviar:", carrito);
 
 
 ////////////////
